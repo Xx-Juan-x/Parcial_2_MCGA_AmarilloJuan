@@ -1,4 +1,3 @@
-
 *{
     box-sizing: border-box;
     margin: 0;
@@ -43,7 +42,7 @@ span{
 
 section{
     background-color:  rgb(143, 140, 140);
-    padding: 214px 0px;
+    min-height: 73.3vh;
     align-items: center;
 }
 

@@ -12,7 +12,7 @@ const Products = () => {
 
   useEffect(() => {
       dispatch(saveProducts());
-  },[])
+  },[dispatch])
 
   if(productsSelector.isLoading){
     return <h3>Loading...</h3>
@@ -24,7 +24,11 @@ const Products = () => {
           return (
               <div key={product.id}>
                   <h2>{product.name}</h2>
+                  <p>{product.description}</p>
                   <p>{product.price} pesos</p>
+                  <p>{product.stock}</p>
+                  <p>{product.category}</p>
+                  <p>{product.isDeleted}</p>
               </div>
           )
         }
