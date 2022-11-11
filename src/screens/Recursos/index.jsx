@@ -6,13 +6,13 @@ const Products = () => {
   const productsSelector = useSelector((state) => state.products)
   const dispatch = useDispatch()
 
-  console.log('data',productsSelector.data);
-  console.log('loading',productsSelector.isLoading);
-  console.log('error',productsSelector.isError);
+  //console.log('data',productsSelector.data);
+  //console.log('loading',productsSelector.isLoading);
+  //console.log('error',productsSelector.isError);
 
   useEffect(() => {
       dispatch(saveProducts());
-  }, [])
+  },[])
 
   if(productsSelector.isLoading){
     return <h3>Loading...</h3>

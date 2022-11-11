@@ -1,29 +1,25 @@
 import React from "react";
-//import styles from "./layout.module.css";
+import styles from "./layout.module.css";
 import { Link } from 'react-router-dom';
-//import Home from './screens/Home';
-
 
 //Armo mi layout
 const Layout = ({children}) => {
     return (
-      <body>
-          <header>
-              <h1>Layout</h1>
-              <nav>
-                <button><Link to={'/Home'}>Home</Link></button>
-                <button><Link to={'/Recursos'}>Products</Link></button>
-              </nav>
+      <div>
+          <header className={styles.header}>
+              <h1 className={styles.tittle}>Layout</h1>
           </header>
-          <section>
-            <div>
+          <nav>
+                <button><Link className={styles.decoration} to={'/Home'}><span>Home</span></Link></button>
+                <button><Link className={styles.decoration} to={'/Recursos'}><span>Products</span></Link></button>
+          </nav>
+            <section>
                 {children}
-            </div>
-          </section>
+            </section>
           <footer>
             <p>MCGA 2022</p>
           </footer>
-      </body>
+      </div>
     )
 }
 export default Layout

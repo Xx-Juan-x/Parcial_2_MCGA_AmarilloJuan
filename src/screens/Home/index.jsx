@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import styles from './home.module.css';
 
 const Home = () => {
 
@@ -8,7 +8,7 @@ const Home = () => {
         <div>
           <h2>Amarillo Juan Ignacio</h2>
           <h2>react app</h2>
-          <Link to={'/'}>Ir al Layout</Link>
+          <button className={styles.volver}><Link className={styles.decoration} to={'/'}><span>Volver</span></Link></button>
         </div>
   )
 }

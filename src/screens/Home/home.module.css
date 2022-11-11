@@ -1,0 +1,28 @@
+/*Estilos del home*/
+
+h2{
+    color: white;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+span{
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.decoration{
+    text-decoration: none;
+    display: flex;
+    justify-content: flex-start;
+    margin: 20px;
+}
+
+.volver{
+    background-color: grey;
+    padding: 0px ;
+    border: none;
+}
