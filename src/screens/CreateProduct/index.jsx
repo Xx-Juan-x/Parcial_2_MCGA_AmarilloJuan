@@ -1,19 +1,21 @@
 import React from "react";
-//import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import {addProductThunk} from "../../store/products/thunks";
 
 export default function CreateProduct() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const onSubmit = data => {
-    console.log(data)
+    console.log(data);
+    dispatch(addProductThunk(data));
+    navigate('/Products');
   };
 
   console.log(errors);
-
-/*<label>Categoria</label>
-        <input type="select" {...register("category",{required: true})} />
-        <select {...register("")} name="" id=""></select>*/
 
   return (
     <div>
@@ -30,6 +32,13 @@ export default function CreateProduct() {
         <label>Precio</label>
         <input type={"number"} {...register("price",{default: 0})}/>
         {errors.price && <span>Debes agregar un precio</span>}
+
+        <label>Categoria</label>
+        <select {...register("category")}>
+          <option value="computers">Computadora</option>
+          <option value="phones">Celulares</option>
+          <option value="accesories">Accesorios</option>
+        </select>
 
         <button type="submit">Crear</button>
       </form>
