@@ -23,7 +23,7 @@ export const saveProducts = () => async (dispatch) => {
 export const addProductThunk = (product) => async (dispatch) => {
     try{
         dispatch(addProductLoading(true));
-        const response = await fetch('https://mcga-2022-backend-julianv97.vercel.app/api/add',{
+        const response = await fetch('https://mcga-2022-backend-julianv97.vercel.app/api/products/add',{
             method: 'POST',
             headers: {
                 'content-Type': 'application/json',

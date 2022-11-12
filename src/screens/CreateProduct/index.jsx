@@ -15,7 +15,7 @@ export default function CreateProduct() {
     navigate('/Products');
   };
 
-  console.log(errors);
+  //console.log(errors);
 
   return (
     <div>
