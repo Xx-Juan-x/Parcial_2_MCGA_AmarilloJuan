@@ -1,0 +1,91 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.conteiner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 73.3vh;
+    width: 100%;
+}
+
+form{
+    background-color: rgb(79, 75, 75);
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    border-radius: 10px;
+    opacity: 0.6;
+    width: 60%;
+    align-items: center;
+    margin: 30px;
+}
+
+label{
+    font-size: 18px;
+    color: white;
+    margin: 10px;
+}
+
+h2{
+    color: white;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+input, textarea{
+    padding: 8px;
+    width: 80%;
+    border: none;
+    background-color: rgb(196, 193, 193);
+    opacity: 0.9;
+    color: white;
+    border-radius: 6px;
+    outline: none;
+    margin-bottom: 15px;
+    resize: none;
+}
+
+select{
+    width: 80%;
+    padding: 8px;
+    background-color: rgb(196, 193, 193);
+    color: white;
+    border: none;
+    opacity: 0.9;
+    font-size: 15px;
+    text-align: center;
+    font-weight: 600;
+    border-radius: 6px;
+    outline: none;
+    cursor: pointer;
+}
+
+.buttonagregarproduct{
+    margin-top: 30px;
+    padding: 10px;
+    width: 80%;
+    font-size: 15px;
+    font-weight: 600;
+    color: white;
+    background-color: rgb(196, 193, 193);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.buttonagregarproduct:hover, select:hover, input:hover, textarea:hover{
+    background-color: rgb(214, 212, 212);
+}
+
+.error{
+    text-align: left;
+    font-weight: 100;
+    width: 80%;
+    font-size: 12px;
+    color: white;
+}

@@ -32,21 +32,21 @@ const Products = () => {
       productsSelector.data.map((product) => {
           return (
               <div className={styles.conteinerList} key={product._id}>
-                <div>
+                <td>
                   <p>{product.name}</p>
-                </div>
-                <div>
+                </td>
+                <td>
                   <p>{product.description}</p>
-                </div>
-                <div>
+                </td>
+                <td>
                   <p>${product.price}</p>
-                </div>
-                <div>
+                </td>
+                <td>
                   <p>{product.stock}</p>
-                </div>
-                <div>
+                </td>
+                <td>
                   <p>{product.category}</p>
-                </div>
+                </td>
               </div>
           )
         }
@@ -54,6 +54,7 @@ const Products = () => {
     }
       <div className={styles.conteinerButton}>
           <Link className={styles.textbutton} to={"/add"}><span>Agregar Producto</span></Link>
+          <Link className={styles.textbutton} to={"/edit"}><span>Editar Producto</span></Link>
       </div>
     </div>
   );

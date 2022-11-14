@@ -4,7 +4,10 @@ import {
     saveDataError,
     addProduct,
     addProductLoading,
-    addProductError
+    addProductError,
+    editProduct,
+    editProductLoading,
+    editProductError
 } from './actions'
 
 export const saveProducts = () => async (dispatch) => {
@@ -36,5 +39,24 @@ export const addProductThunk = (product) => async (dispatch) => {
         dispatch(addProductLoading(false));
     }catch (error){
         dispatch(addProductError());
+    }
+}
+
+export const editProductThunk = (product) => async (dispatch) => {
+    try{
+        dispatch(editProductLoading(true));
+        const response = await fetch('https://mcga-2022-backend-julianv97.vercel.app/api/products/edit',{
+            method: 'PUT',
+            headers: {
+                'content-Type': 'application/json',
+            },
+            body: JSON.stringify(product),
+        });
+        const productResponse = await response.json();
+        if(response.status !== 200) throw new Error('Error');
+        dispatch(editProduct(productResponse));
+        dispatch(editProductLoading(false));
+    }catch{
+        dispatch(editProductError());
     }
 }
