@@ -18,45 +18,40 @@ const Products = () => {
   }
 
   return (
-    <div className={styles.conteiner}>
-      <thead>
-        <tr>
-          <th>Nombre</th>
-          <th>Descripcion</th>
-          <th>Precio</th>
-          <th>Stock</th>
-          <th>Categoría</th>
-        </tr>
-      </thead>
-    {
-      productsSelector.data.map((product) => {
-          return (
-              <div className={styles.conteinerList} key={product._id}>
-                <td>
-                  <p>{product.name}</p>
-                </td>
-                <td>
-                  <p>{product.description}</p>
-                </td>
-                <td>
-                  <p>${product.price}</p>
-                </td>
-                <td>
-                  <p>{product.stock}</p>
-                </td>
-                <td>
-                  <p>{product.category}</p>
-                </td>
-              </div>
-          )
-        }
-      )
-    }
-      <div className={styles.conteinerButton}>
-          <Link className={styles.textbutton} to={"/add"}><span>Agregar Producto</span></Link>
-          <Link className={styles.textbutton} to={"/edit"}><span>Editar Producto</span></Link>
-      </div>
-    </div>
+    <section className={styles.conteinerSection}>
+      <table className={styles.conteinerTable}>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Descripcion</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th>Categoría</th>
+            <th>Modificar</th>
+            <th>Eliminar</th>
+          </tr>
+        </thead>
+        <tbody>
+              {
+            productsSelector.data.map((product) => {
+                return (
+                  <tr key={product._id}>
+                    <td>{product.name}</td>
+                    <td>{product.description}</td>
+                    <td>{product.price}</td>
+                    <td>{product.stock}</td>
+                    <td>{product.category}</td>
+                    <td><Link to={`/edit/${product._id}`}><button className={styles.editar}>Editar</button></Link></td>
+                    <td><Link to={"/delete"}><button className={styles.delete}>Eliminar</button></Link></td>
+                  </tr>
+                )
+              }
+            )
+          }
+        </tbody>
+            <div><Link className={styles.linkbutton} to={"/add"}><button className={styles.agregar}>Agregar Producto</button></Link></div>
+      </table>
+    </section>
   );
 };
 

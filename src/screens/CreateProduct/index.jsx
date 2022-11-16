@@ -13,7 +13,7 @@ export default function CreateProduct() {
   const onSubmit = data => {
     console.log(data);
     dispatch(addProductThunk(data));
-    navigate('/Products');
+    navigate('/Recursos');
   };
 
   //console.log(errors);

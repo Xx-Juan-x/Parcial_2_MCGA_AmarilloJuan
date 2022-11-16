@@ -1,91 +1,66 @@
-.conteiner{
+.conteinerSection{
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 73.3vh;
     justify-content: center;
+    min-height: 73.3vh;
     width: 100%;
 }
 
-.conteinerList{
-    display: inherit;
-    flex-direction: row;
-    align-items: center;
+.conteinerTable{
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    width: 80%;
     background-color: rgb(154, 153, 153);
-    justify-content: space-around;
-    padding: 15px;
-    width: 95%;
-    opacity: 0.6;
 }
 
-.conteinerList td{
-    width: 100%;
+.conteinerTable thead tr{
+    background-color: rgb(49, 49, 49);
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+    border-bottom: 2px solid rgb(98, 97, 97);
 }
 
-.conteinerList td p{
-    cursor: default;
-
-}
-
-thead{
-    background-color: rgb(154, 153, 153);
-    width: 95%;
-    display: flex;
-    flex-direction: row;
-    border-bottom: 2px solid rgb(133, 131, 131);
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    justify-content: space-around;
-    margin-top: 30px;
-}
-
-tr{
-    padding: 10px;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    padding: 15px;
-}
-
-th{
-    font-size: 18px;
-    font-weight: 600;
-    color: white;
-    cursor: default;
-}
-
-.conteinerList p{
-    font-size: 16px;
-    color: rgb(7, 6, 6);
+.conteinerTable th, .conteinerTable td{
+    padding: 12px 15px;
     text-align: center;
 }
 
-.conteinerButton{
-    margin: 30px 0;
-    display: flex;
-    flex-direction: row;
-    width: 95%;
+.conteinerTable tbody tr{
+    border-bottom: 1px solid rgb(128, 124, 124);
 }
 
-.conteinerButton span{
-    color: white;
-    font-size: 20px;
-    font-weight: 600;
+.conteinerTable tbody tr:nth-of-type(even) {
+    background-color: rgb(191, 185, 185);
 }
 
-.textbutton{
-    margin: 15px;
-    padding: 12px;
+.editar, .delete{
+    padding: 5px;
     background-color: grey;
     border: none;
-    border-radius: 10px;
+    border-radius: 5px;
     cursor: pointer;
     text-decoration: none;
     text-align: center;
-    width: 50%;
+    color: white;
+    font-size: 14px;
 }
 
-.textbutton:hover{
+.agregar{
+    padding: 10px;
+    background-color: grey;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.agregar:hover, .editar:hover, .delete:hover{
     background-color: rgb(83, 82, 82);
 }
 

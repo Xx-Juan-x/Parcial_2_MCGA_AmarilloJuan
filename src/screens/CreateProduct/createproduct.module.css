@@ -14,21 +14,22 @@
 }
 
 form{
-    background-color: rgb(79, 75, 75);
+    background-color: rgb(63, 62, 62);
     display: flex;
     flex-direction: column;
-    padding: 30px;
+    padding: 15px;
     border-radius: 10px;
     opacity: 0.6;
     width: 60%;
     align-items: center;
-    margin: 30px;
+    margin: 30px 0;
 }
 
 label{
-    font-size: 18px;
+    font-size: 16px;
     color: white;
     margin: 10px;
+    font-weight: 600;
 }
 
 h2{
@@ -38,12 +39,12 @@ h2{
 }
 
 input, textarea{
-    padding: 8px;
-    width: 80%;
+    padding: 6px;
+    width: 90%;
     border: none;
     background-color: rgb(196, 193, 193);
     opacity: 0.9;
-    color: white;
+    color: black;
     border-radius: 6px;
     outline: none;
     margin-bottom: 15px;
@@ -51,10 +52,10 @@ input, textarea{
 }
 
 select{
-    width: 80%;
-    padding: 8px;
+    width: 90%;
+    padding: 4px;
     background-color: rgb(196, 193, 193);
-    color: white;
+    color: black;
     border: none;
     opacity: 0.9;
     font-size: 15px;
@@ -68,18 +69,22 @@ select{
 .buttonagregarproduct{
     margin-top: 30px;
     padding: 10px;
-    width: 80%;
+    width: 90%;
     font-size: 15px;
     font-weight: 600;
     color: white;
-    background-color: rgb(196, 193, 193);
+    background-color: grey;
     border: none;
     border-radius: 6px;
     cursor: pointer;
 }
 
-.buttonagregarproduct:hover, select:hover, input:hover, textarea:hover{
+select:hover, input:hover, textarea:hover{
     background-color: rgb(214, 212, 212);
+}
+
+.buttonagregarproduct:hover{
+    background-color: rgb(83, 82, 82);
 }
 
 .error{
