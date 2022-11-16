@@ -7,13 +7,13 @@ import {
     addProductError,
     editProduct,
     editProductLoading,
-    editProductError
+    editProductError,
 } from './actions'
 
 export const saveProducts = () => async (dispatch) => {
     try {
         dispatch(saveDataLoading(true));
-        const response = await fetch('https://mcga-2022-backend-julianv97.vercel.app/api/products');
+        const response = await fetch('https://mcga-2022-backend-git-master-julianv97.vercel.app/api/products');
         const productsResponse = await response.json();
         if (response.status !== 200) throw new Error('Error');
         dispatch(saveData(productsResponse));
@@ -26,7 +26,7 @@ export const saveProducts = () => async (dispatch) => {
 export const addProductThunk = (product) => async (dispatch) => {
     try{
         dispatch(addProductLoading(true));
-        const response = await fetch('https://mcga-2022-backend-julianv97.vercel.app/api/products/add',{
+        const response = await fetch('https://mcga-2022-backend-git-master-julianv97.vercel.app/api/products/add',{
             method: 'POST',
             headers: {
                 'content-Type': 'application/json',
@@ -45,7 +45,7 @@ export const addProductThunk = (product) => async (dispatch) => {
 export const editProductThunk = (product) => async (dispatch) => {
     try{
         dispatch(editProductLoading(true));
-        const response = await fetch(`https://mcga-2022-backend-julianv97.vercel.app/api/products/${product._id}`,{
+        const response = await fetch(`https://mcga-2022-backend-git-master-julianv97.vercel.app/api/products/${product._id}`,{
             method: 'PUT',
             headers: {
                 'content-Type': 'application/json',
@@ -56,7 +56,7 @@ export const editProductThunk = (product) => async (dispatch) => {
         if(response.status !== 200) throw new Error('Error');
         dispatch(editProduct(productResponse));
         dispatch(editProductLoading(false));
-    }catch{
+    }catch (error){
         dispatch(editProductError());
     }
 }

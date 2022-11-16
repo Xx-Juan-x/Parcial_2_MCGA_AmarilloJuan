@@ -1,4 +1,4 @@
-import { SAVE_DATA_FULLFILLED, SAVE_DATA_LOADING, SAVE_DATA_REJECTED, ADD_DATA_FULLFILLED, ADD_DATA_LOADING, ADD_DATA_REJECTED, EDIT_PRODUCT_FULLFILLED, EDIT_PRODUCT_LOADING,EDIT_PRODUCT_REJECTED, DELETE_DATA,  } from './types'
+import { SAVE_DATA_FULLFILLED, SAVE_DATA_LOADING, SAVE_DATA_REJECTED, ADD_DATA_FULLFILLED, ADD_DATA_LOADING, ADD_DATA_REJECTED, EDIT_PRODUCT_FULLFILLED, EDIT_PRODUCT_LOADING, EDIT_PRODUCT_REJECTED } from './types'
 
 
 //Guardo la lista de productos
@@ -6,14 +6,14 @@ import { SAVE_DATA_FULLFILLED, SAVE_DATA_LOADING, SAVE_DATA_REJECTED, ADD_DATA_F
 export const saveData = (data) => {
     return {
         type: SAVE_DATA_FULLFILLED,
-        payload: data
+        payload: data,
     };
 };
 
 export const saveDataLoading = (isLoading) => {
     return{
         type: SAVE_DATA_LOADING,
-        payload: isLoading
+        payload: isLoading,
     };
 };
 
@@ -28,14 +28,14 @@ export const saveDataError = () => {
 export const addProduct = (data) => {
     return{
         type: ADD_DATA_FULLFILLED,
-        payload: data
+        payload: data,
     };
 };
 
 export const addProductLoading = (isLoading) =>{
     return{
         type: ADD_DATA_LOADING,
-        payload: isLoading
+        payload: isLoading,
     };
 };
 
@@ -49,14 +49,14 @@ export const addProductError = () =>{
 export const editProduct = (data) => {
     return{
         type: EDIT_PRODUCT_FULLFILLED,
-        payload: data
+        payload: data,
     };
 };
 
 export const editProductLoading = (isLoading) =>{
     return{
         type: EDIT_PRODUCT_LOADING,
-        payload: isLoading
+        payload: isLoading,
     };
 };
 
@@ -64,11 +64,4 @@ export const editProductError = () =>{
     return{
         type: EDIT_PRODUCT_REJECTED,
     };
-};
-
-export const deleteData = (id) => {
-    return {
-        type: DELETE_DATA,
-        payload: id
-    }
 };

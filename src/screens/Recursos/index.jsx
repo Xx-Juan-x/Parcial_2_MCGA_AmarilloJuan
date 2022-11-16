@@ -4,7 +4,6 @@ import {saveProducts} from "../../store/products/thunks";
 import { Link } from 'react-router-dom';
 import styles from "./recurso.module.css";
 
-
 const Products = () => {
   const productsSelector = useSelector((state) => state.products)
   const dispatch = useDispatch()
@@ -42,7 +41,7 @@ const Products = () => {
                     <td>{product.stock}</td>
                     <td>{product.category}</td>
                     <td><Link to={`/edit/${product._id}`}><button className={styles.editar}>Editar</button></Link></td>
-                    <td><Link to={"/delete"}><button className={styles.delete}>Eliminar</button></Link></td>
+                    <td><button className={styles.delete}>Eliminar</button></td>
                   </tr>
                 )
               }

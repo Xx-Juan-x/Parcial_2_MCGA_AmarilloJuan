@@ -1,11 +1,11 @@
-import { SAVE_DATA_FULLFILLED, SAVE_DATA_LOADING, SAVE_DATA_REJECTED, ADD_DATA_FULLFILLED, ADD_DATA_LOADING, ADD_DATA_REJECTED, EDIT_PRODUCT_FULLFILLED, EDIT_PRODUCT_LOADING, EDIT_PRODUCT_REJECTED, DELETE_DATA } from './types'
+import { SAVE_DATA_FULLFILLED, SAVE_DATA_LOADING, SAVE_DATA_REJECTED, ADD_DATA_FULLFILLED, ADD_DATA_LOADING, ADD_DATA_REJECTED, EDIT_PRODUCT_FULLFILLED, EDIT_PRODUCT_LOADING, EDIT_PRODUCT_REJECTED } from './types'
 
 //Inicializo los estados (array vacío - cargando - error)
 const INITIAL_STATE = {
     data: [],
     isLoading: false,
-    isError: false
-}
+    isError: false,
+};
 
 //Guardamos, obtenemos, agregamos, modificamos y eliminamos datos del producto
 const productsReducer = (state = INITIAL_STATE, action) => {
@@ -15,40 +15,40 @@ const productsReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 data: action.payload,
-                isError: false
+                isError: false,
             };
 
         case SAVE_DATA_LOADING:
             return {
                 ...state,
-                isLoading: action.payload
+                isLoading: action.payload,
             };
 
         case SAVE_DATA_REJECTED:
             return{
                 ...state,
                 isError: true,
-                isLoading: false
+                isLoading: false,
             };
 
         case ADD_DATA_FULLFILLED:
             return{
                 ...state,
                 data: action.payload,
-                isError: false
+                isError: false,
             };
 
         case ADD_DATA_LOADING:
             return{
                 ...state,
-                isLoading: action.payload
+                isLoading: action.payload,
             };
 
         case ADD_DATA_REJECTED:
             return{
                 ...state,
                 isError: true,
-                isLoading: false
+                isLoading: false,
             };
 
         case EDIT_PRODUCT_FULLFILLED:
@@ -60,31 +60,25 @@ const productsReducer = (state = INITIAL_STATE, action) => {
                     }
                     return product;
                 }),
-                isError: false
+                isError: false,
             };
 
         case EDIT_PRODUCT_LOADING:
             return{
                 ...state,
-                isLoading: action.payload
+                isLoading: action.payload,
             };
 
         case EDIT_PRODUCT_REJECTED:
             return{
                 ...state,
                 isError: true,
-                isLoading: false
-            };
-
-        case DELETE_DATA:
-            return {
-                ...state,
-                data: state.data.filter(x => x.id !== action.payload)
+                isLoading: false,
             };
 
         default:
             return state;
     }
-}
+};
 
 export default productsReducer;
