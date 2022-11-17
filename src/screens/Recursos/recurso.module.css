@@ -69,3 +69,10 @@
     text-align: center;
 }
 
+.conteinerbutton{
+    width: 100%;
+}
+
+.linkbutton{
+    justify-content: center;
+}

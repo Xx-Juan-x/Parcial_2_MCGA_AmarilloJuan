@@ -94,3 +94,8 @@ select:hover, input:hover, textarea:hover{
     font-size: 12px;
     color: white;
 }
+
+.loading{
+    color: white;
+    text-align: center;
+}

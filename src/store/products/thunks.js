@@ -8,6 +8,9 @@ import {
     editProduct,
     editProductLoading,
     editProductError,
+    deleteProduct,
+    deleteProductLoading,
+    deleteProductError
 } from './actions'
 
 export const saveProducts = () => async (dispatch) => {
@@ -37,6 +40,7 @@ export const addProductThunk = (product) => async (dispatch) => {
         if(response.status !==200) throw new Error('Error');
         dispatch(addProduct(productResponse));
         dispatch(addProductLoading(false));
+        dispatch(saveProducts());
     }catch (error){
         dispatch(addProductError());
     }
@@ -56,7 +60,28 @@ export const editProductThunk = (product) => async (dispatch) => {
         if(response.status !== 200) throw new Error('Error');
         dispatch(editProduct(productResponse));
         dispatch(editProductLoading(false));
+        dispatch(saveProducts());
     }catch (error){
         dispatch(editProductError());
     }
 }
+
+export const deleteProductsThunk = (id) => async (dispatch) => {
+    dispatch(deleteProductLoading());
+    try {
+    const response = await fetch(`https://mcga-2022-backend-git-master-julianv97.vercel.app/api/products/${id}`,
+    {
+        method: 'DELETE',
+        headers: {
+            'content-Type': 'application/json',
+        },
+    });
+    const json = await response.json();
+    if(response.status !== 200 ) throw new Error(json)
+
+    dispatch(deleteProduct(json));
+    dispatch(saveProducts());
+    } catch (error) {
+    dispatch(deleteProductError(error.toString()));
+    }
+};

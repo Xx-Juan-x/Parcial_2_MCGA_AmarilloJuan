@@ -1,4 +1,15 @@
-import { SAVE_DATA_FULLFILLED, SAVE_DATA_LOADING, SAVE_DATA_REJECTED, ADD_DATA_FULLFILLED, ADD_DATA_LOADING, ADD_DATA_REJECTED, EDIT_PRODUCT_FULLFILLED, EDIT_PRODUCT_LOADING, EDIT_PRODUCT_REJECTED } from './types'
+import { SAVE_DATA_FULLFILLED,
+    SAVE_DATA_LOADING,
+    SAVE_DATA_REJECTED,
+    ADD_DATA_FULLFILLED,
+    ADD_DATA_LOADING,
+    ADD_DATA_REJECTED,
+    EDIT_PRODUCT_FULLFILLED,
+    EDIT_PRODUCT_LOADING,
+    EDIT_PRODUCT_REJECTED,
+    DELETE_PRODUCTS_FULLFILLED,
+    DELETE_PRODUCTS_LOADING,
+    DELETE_PRODUCTS_ERROR } from './types'
 
 //Inicializo los estados (array vacío - cargando - error)
 const INITIAL_STATE = {
@@ -76,9 +87,30 @@ const productsReducer = (state = INITIAL_STATE, action) => {
                 isLoading: false,
             };
 
+            case DELETE_PRODUCTS_FULLFILLED:
+                return{
+                    ...state,
+                    data: state.data.filter(x => x.id !== action.payload),
+                    isError: false,
+                };
+
+            case DELETE_PRODUCTS_LOADING:
+                return{
+                    ...state,
+                    isLoading: action.payload,
+                };
+
+            case DELETE_PRODUCTS_ERROR:
+                return{
+                    ...state,
+                    isError: true,
+                    isLoading: false,
+                };
+
         default:
             return state;
     }
+
 };
 
 export default productsReducer;

@@ -31,19 +31,12 @@ export default function EditProduct() {
     console.log(data);
     dispatch(editProductThunk(data));
     setSubmited(true);
+    //navigate("/Recursos");
   };
 
-  if(productsSelector.isError){
-    return(
-        <div>
-            <span>Advertencia</span>
-            ERROR
-        </div>
-    );
-  }
   if(productsSelector.isLoading){
     return(
-        <h3>Loading...</h3>
+        <h2 className={styles.loading}>Loading...</h2>
     )
   }
   //console.log(errors);
@@ -58,19 +51,19 @@ export default function EditProduct() {
         <h2>Modificar Producto</h2>
         <label>Nombre</label>
         <input type={"text"} {...register("name",{required: true, maxLength:20})}/>
-        {errors.name && <span className={styles.error}>Debe completar el nombre del producto de forma correcta</span>}
+        {errors.name && <span className={styles.error}>Este campo no puede quedar vacío o tener un máximo de 20 caracteres</span>}
 
         <label>Descripcion</label>
         <textarea cols="30" rows="10" type={"textarea"} {...register("description",{maxLength: 100})}></textarea>
         {errors.description && <span className={styles.error}>No puede superar los 100 caracteres</span>}
 
         <label>Precio</label>
-        <input type={"number"} {...register("price",{min: 0})}/>
-        {errors.price && <span className={styles.error}>El precio no puede ser un valor negativo</span>}
+        <input type={"number"} {...register("price",{required:true, min: 0})}/>
+        {errors.price && <span className={styles.error}>El precio no puede ser un valor negativo o estar vacío</span>}
 
         <label>Stock</label>
-        <input type={"number"} {...register("stock",{min: 0})}/>
-        {errors.stock && <span className={styles.error}>El stock no puede ser un valor negativo</span>}
+        <input type={"number"} {...register("stock",{required:true, min: 0})}/>
+        {errors.stock && <span className={styles.error}>El stock no puede ser un valor negativo o estar vacío</span>}
 
         <label>Categoria</label>
         <select {...register("category")}>

@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {saveProducts} from "../../store/products/thunks";
+import {deleteProductsThunk, saveProducts} from "../../store/products/thunks";
 import { Link } from 'react-router-dom';
 import styles from "./recurso.module.css";
 
@@ -11,6 +11,10 @@ const Products = () => {
   useEffect(() => {
       dispatch(saveProducts());
   },[dispatch])
+  
+  function handleClick(id){
+    dispatch(deleteProductsThunk(id));
+  }
 
   if(productsSelector.isLoading){
     return <h2 className={styles.loading}>Loading...</h2>
@@ -41,14 +45,14 @@ const Products = () => {
                     <td>{product.stock}</td>
                     <td>{product.category}</td>
                     <td><Link to={`/edit/${product._id}`}><button className={styles.editar}>Editar</button></Link></td>
-                    <td><button className={styles.delete}>Eliminar</button></td>
+                    <td><button onClick={() => handleClick(product._id)} className={styles.delete}>Eliminar</button></td>
                   </tr>
                 )
               }
             )
           }
         </tbody>
-            <div><Link className={styles.linkbutton} to={"/add"}><button className={styles.agregar}>Agregar Producto</button></Link></div>
+            <Link  className={styles.linkbutton} to={"/add"}><button className={styles.agregar}>Agregar Producto</button></Link>
       </table>
     </section>
   );
